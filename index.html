@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::after,*::before{
+            box-sizing: border-box;
+        }
+
+        html{
+            width: 100%;
+        }
+
+        body{
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .container{
+            width: 60%;
+
+        }
+
+        .container-ele{
+            border: 1px solid black;
+            margin: 20px 0;
+            position: relative;
+            padding: 16px;
+        }
+
+        .container-ele .container-ele-para{
+            display: none;
+        }
+
+        .container-ele  span.cross{
+            display: none;
+        }
+
+        .container-ele .container-ele-btn{
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 16px;
+        }
+
+        .container-ele.active .container-ele-para{
+            display: block;
+        }
+
+        .container-ele.active  span.cross{
+            display: block;
+        }
+        .container-ele.active  span.plus{
+            display: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Collapsing FAQ</h1>
+        <div class="container-ele">
+            <h3 class="container-ele-heading">What is 1+1?</h3>
+            <p class="container-ele-para">The answer is 99!</p>
+            <button class="container-ele-btn"><span class="plus">&#9769;</span><span class="cross">&#9747</span></button>
+        </div>
+
+        <div class="container-ele">
+            <h3 class="container-ele-heading">What is Bermuda Triangle?</h3>
+            <p class="container-ele-para">idk, a triangle built in bermuda?</p>
+            <button class="container-ele-btn"><span class="plus">&#9769;</span><span class="cross">&#9747</span></button>
+        </div>
+
+        <div class="container-ele">
+            <h3 class="container-ele-heading">How fast is the light?</h3>
+            <p class="container-ele-para">Faster than buzz lightyear</p>
+            <button class="container-ele-btn"><span class="plus">&#9769;</span><span class="cross">&#9747</span></button>
+        </div>
+    </div>
+
+    <script>
+        let btns = document.querySelectorAll('.container-ele-btn');
+
+        btns.forEach(btn=>{
+            btn.addEventListener('click',function(){
+btn.parentElement.classList.toggle('active')
+})
+        })
+    </script>
+</body>
+</html>
